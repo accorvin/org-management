@@ -1,0 +1,20 @@
+name: Apply Organization Membership
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - "config/opendatahub-io/org.yaml"
+  pull_request_review:
+jobs:
+  peribolos:
+    runs-on: ubuntu-latest
+    container:
+      image: gcr.io/k8s-prow/peribolos
+    steps:
+      - uses: actions/checkout@v3
+      - name: Save PR number
+        run: |
+          echo ${{ secrets.ORG_MANAGEMENT_TOKEN }} > /.github_token.txt
+          # Just run in dry-run mode for now
+          peribolos --github-token-path /.github_token.txt --config-path "config/opendatahub-io/org.yaml"
