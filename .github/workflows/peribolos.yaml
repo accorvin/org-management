@@ -14,7 +14,7 @@ jobs:
       image: gcr.io/k8s-prow/peribolos
     steps:
       - uses: actions/checkout@v3
-      - name: Save PR number
+      - name: Apply ODH organization memebership
         run: |
           echo ${{ secrets.ORG_MANAGEMENT_TOKEN }} > /.github_token.txt
           # Just run in dry-run mode for now
