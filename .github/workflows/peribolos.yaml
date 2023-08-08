@@ -18,4 +18,4 @@ jobs:
         run: |
           echo ${{ secrets.ORG_MANAGEMENT_TOKEN }} > /.github_token.txt
           # Just run in dry-run mode for now
-          peribolos --github-token-path /.github_token.txt --config-path "config/opendatahub-io/org.yaml"  --fix-org --fix-org-members --fix-teams --fix-team-members --fix-team-repos --fix-repo
+          peribolos --github-token-path /.github_token.txt --config-path "config/opendatahub-io/org.yaml"  --fix-org --fix-org-members --fix-teams --fix-team-members --fix-team-repos --fix-repos
